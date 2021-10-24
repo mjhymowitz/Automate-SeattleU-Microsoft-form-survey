@@ -5,17 +5,21 @@ from selenium.webdriver import Edge
 import time
 
 # variables
-EMAIL = '' 			# Enter your SU email here
+EMAIL = '' 	# Enter your SU email here
 PASSWORD = '' 	# Enter your SU password here
-FORM_URL = "https://forms.office.com/Pages/ResponsePage.aspx?id=UuAQvBywSUiZZ-5-x0_J2JXoEsux15xJh0xDP1C0CuxUQVFHVUJOUDQ3U1dEM1pENDlHRVJRWFdUVi4u"
+SEATTLEU_COVID = "https://www.seattleu.edu/coronavirus/screening/"
 
 #AUTOMATION
 get_confirmation_div_text = ''
+# Open Browser
+driver = Edge(r".\msedgedriver.exe")
 try:
-    # Open Browser
-    driver = Edge(r".\msedgedriver.exe")
-    driver.get(FORM_URL)
-    time.sleep(10)
+    # Open School Website
+    driver.get(SEATTLEU_COVID)
+    form_url = driver.find_element_by_xpath('//*[@id="id1647669"]/div/div/ul/li[1]/a') 
+    time.sleep(2)
+    driver.get(form_url.get_attribute('href'))
+    time.sleep(8)
 
     # Enter Username
     user = driver.find_element_by_xpath('//*[@id="i0116"]')
@@ -67,13 +71,15 @@ try:
     # Confirm if code worked or not
     get_confirmation_div_text = driver.find_element_by_xpath('//*[@id="form-container"]/div/div/div[1]/div/div[2]/div[1]/div[2]/span')
 except Exception:
+    print("---------------------------------------------------------------------------------")
     print("Test Was Not Successful")
 
-
+print("---------------------------------------------------------------------------------")
 #Confirm if code worked or not
-if ((get_confirmation_div_text.text) == "Please check your Seattle University email for your screening results prior to coming to campus."):
+if ((get_confirmation_div_text) != ''):
     print ("Test Was Successful")
-		return true
-return false
+else:
+    print("Test Was Not Successful")
 
 driver.close()
+exit()
