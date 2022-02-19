@@ -1,16 +1,23 @@
 #!/usr/bin/env python
 # coding: utf-8
+#from click import option
 from config import *
 from selenium.webdriver import Edge
+from selenium.webdriver.edge.options import Options
 import time
 
 # variables
 SEATTLEU_COVID = "https://www.seattleu.edu/coronavirus/screening/"
 
+options = Options()
+options.use_chromium = True
+options.add_argument("headless")
+options.add_argument("disable-gpu")
+
 #AUTOMATION
 get_confirmation_div_text = ''
 # Open Browser
-driver = Edge(r".\msedgedriver.exe")
+driver = Edge(webdriver_path, options=options)
 try:
     # Open School Website
     driver.get(SEATTLEU_COVID)
