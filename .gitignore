@@ -1,4 +1,6 @@
 config.py
 __pycache__/
 AutoFormExecutable.bat
-test file.ipynb
+*.ipynb
+*.env
+*.log

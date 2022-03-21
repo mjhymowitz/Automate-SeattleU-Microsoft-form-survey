@@ -4,8 +4,6 @@
 EMAIL = '' 	# Enter your SU email here
 PASSWORD = '' 	# Enter your SU password here
 
-webdriver_path = r"" #Put webdriverpath here
-
 #these variables will need to be adjusted to fit your internet speed
-long_sleep = 8              
-short_sleep = 2
+browser_long_delay = 10.0
+browser_short_delay = 2.0
