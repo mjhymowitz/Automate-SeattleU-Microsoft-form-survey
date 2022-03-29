@@ -22,7 +22,7 @@ from time import sleep
 
 # variables
 SEATTLEU_COVID = "https://www.seattleu.edu/coronavirus/screening/"
-COVID_FORM_URL_XPATH = '/html/body/div[6]/div/div[3]/div[2]/div/div/ul/li[1]/a'
+COVID_FORM_URL_XPATH = '/html/body/div[5]/div/div[3]/div[2]/div/div/ul/li[1]/a'
 USERNAME_INPUT_XPATH = '//*[@id="i0116"]'
 USERNAME_SUBMIT_BUTTON_XPATH = '//*[@id="idSIButton9"]'
 PASSWORD_INPUT_XPATH = '//*[@id="i0118"]'
